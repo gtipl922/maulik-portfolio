@@ -30,7 +30,7 @@
     </div>
   </section>
 
-  <section id="about">
+  <section id="about" class="fade-in">
     <h2>About Me</h2>
     <p>
       I’m a DevOps Engineer with 4+ years of experience building scalable cloud infrastructure, automating CI/CD pipelines, 
@@ -39,7 +39,7 @@
     </p>
   </section>
 
-  <section id="skills">
+  <section id="skills" class="fade-in">
     <h2>Technical Skills</h2>
     <div class="skills-grid">
       <div class="skill">Azure (Certified)</div>
@@ -54,7 +54,7 @@
     </div>
   </section>
 
-  <section id="projects">
+  <section id="projects" class="fade-in">
     <h2>Projects</h2>
     <div class="projects-grid">
       <div class="project">
@@ -72,7 +72,7 @@
     </div>
   </section>
 
-  <section id="contact">
+  <section id="contact" class="fade-in">
     <h2>Contact</h2>
     <p>Let’s connect! Reach me via:</p>
     <ul>
@@ -85,5 +85,30 @@
   <footer>
     <p>&copy; 2025 Maulik Rana. All rights reserved.</p>
   </footer>
+
+  <script>
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Fade-in animation when sections are visible
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.fade-in').forEach(section => {
+      observer.observe(section);
+    });
+  </script>
 </body>
 </html>

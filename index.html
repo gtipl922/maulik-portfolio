@@ -4,111 +4,161 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Maulik Rana - DevOps Engineer</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-  <header>
-    <nav>
-      <h1 class="logo">Maulik Rana</h1>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <div class="hero-text">
-      <h2>Hi, I'm <span>Maulik Rana</span></h2>
-      <p>DevOps Engineer | Azure & Automation Specialist</p>
-      <a href="Maulik_Resume.pdf" class="btn" download>Download Resume</a>
-    </div>
-  </section>
-
-  <section id="about" class="fade-in">
-    <h2>About Me</h2>
-    <p>
-      I’m a DevOps Engineer with 4+ years of experience building scalable cloud infrastructure, automating CI/CD pipelines, 
-      and optimizing deployments across Azure, AWS, and Kubernetes. Passionate about automation, monitoring, 
-      and modern cloud technologies to help teams deliver faster and more reliably.
-    </p>
-  </section>
-
-  <section id="skills" class="fade-in">
-    <h2>Technical Skills</h2>
-    <div class="skills-grid">
-      <div class="skill">Azure (Certified)</div>
-      <div class="skill">AWS</div>
-      <div class="skill">Kubernetes</div>
-      <div class="skill">Docker</div>
-      <div class="skill">Terraform</div>
-      <div class="skill">Jenkins</div>
-      <div class="skill">Prometheus & Grafana</div>
-      <div class="skill">CI/CD Pipelines</div>
-      <div class="skill">Linux Administration</div>
-    </div>
-  </section>
-
-  <section id="projects" class="fade-in">
-    <h2>Projects</h2>
-    <div class="projects-grid">
-      <div class="project">
-        <h3>CI/CD Pipeline Automation</h3>
-        <p>Automated builds, tests, and deployments using Jenkins & GitHub Actions, reducing deployment time by 60%.</p>
-      </div>
-      <div class="project">
-        <h3>Kubernetes Cluster Setup</h3>
-        <p>Deployed and scaled applications on Azure Kubernetes Service with automated monitoring and alerting.</p>
-      </div>
-      <div class="project">
-        <h3>Infrastructure as Code</h3>
-        <p>Provisioned Azure infrastructure with Terraform and ARM templates, reducing manual effort by 70%.</p>
+<body class="bg-gray-50 text-gray-800">
+  <!-- Hero -->
+  <section class="bg-blue-900 text-white py-10">
+    <div class="container mx-auto text-center">
+      <h1 class="text-4xl font-bold">Maulik Rana</h1>
+      <p class="mt-2 text-lg">DevOps Engineer</p>
+      <div class="mt-4 space-x-4">
+        <a href="mailto:ranamaulik922@gmail.com" class="underline">ranamaulik922@gmail.com</a>
+        <a href="https://www.linkedin.com/in/maulik-rana-0974b1148/" class="underline" target="_blank">LinkedIn</a>
+        <p class="text-sm mt-2">📞 +91-7016331903</p>
       </div>
     </div>
   </section>
 
-  <section id="contact" class="fade-in">
-    <h2>Contact</h2>
-    <p>Let’s connect! Reach me via:</p>
-    <ul>
-      <li>Email: <a href="mailto:ranamaulik922@gmail.com">ranamaulik922@gmail.com</a></li>
-      <li>LinkedIn: <a href="https://www.linkedin.com/in/maulik-rana-0974b1148/" target="_blank">linkedin.com/in/maulik-rana</a></li>
-      <li>Phone: +91-7016331903</li>
+  <!-- Objectives -->
+  <section class="py-10 px-4 max-w-4xl mx-auto">
+    <h2 class="text-2xl font-semibold mb-4">Objectives</h2>
+    <p class="mb-4">To apply my knowledge in my future endeavors and enable my employer to achieve milestones.</p>
+    <ul class="list-disc pl-5 space-y-2">
+      <li>To work in a creative and challenging environment using cutting edge technology where I can constantly learn and successfully deliver the solutions to the problem.</li>
+      <li>Seeking a position to utilize my skills and abilities in the Information Technology Industry, a job where growth prospects are unlimited and individuality is recognized by work, and to achieve professional satisfaction by meeting higher responsibilities and involving in competent work areas.</li>
     </ul>
   </section>
 
-  <footer>
-    <p>&copy; 2025 Maulik Rana. All rights reserved.</p>
-  </footer>
+  <!-- Strengths -->
+  <section class="bg-white py-10 px-4 max-w-4xl mx-auto">
+    <h2 class="text-2xl font-semibold mb-4">Strengths</h2>
+    <ul class="list-disc pl-5 space-y-2">
+      <li>A pleasing personality coupled with good communication skills and the keenness to take up new challenges further augment my assets.</li>
+      <li>Comprehensive troubleshooting abilities, effective verbal and good customer handling skills.</li>
+      <li>Ability to deal with people diplomatically, willingness to learn, hardworking, patient, and polite.</li>
+      <li>An enthusiastic approach to all tasks.</li>
+    </ul>
+  </section>
 
-  <script>
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-      });
-    });
+  <!-- Technical Qualifications -->
+  <section class="py-10 px-4 max-w-4xl mx-auto">
+    <h2 class="text-2xl font-semibold mb-4">Technical Qualifications</h2>
+    <ul class="list-disc pl-5 space-y-2">
+      <li>Hardware & Network (JCHNP+Cloud)</li>
+      <li>Azure Fundamentals</li>
+      <li>Azure Administrator Associate by Microsoft</li>
+      <li>Azure DevOps Engineer Expert</li>
+    </ul>
+  </section>
 
-    // Fade-in animation when sections are visible
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.2 });
+  <!-- Projects -->
+  <section class="bg-blue-50 py-10 px-4 max-w-4xl mx-auto">
+    <h2 class="text-2xl font-semibold mb-4">Projects</h2>
+    <ul class="list-disc pl-5 space-y-2">
+      <li><strong>Mybyk</strong> – CI-based Node.js web and mobile application</li>
+      <li><strong>Kahunas</strong> – Laravel backend with mobile app integration</li>
+      <li><strong>Skilled</strong> – Online learning platform built on React, Node.js, and Laravel</li>
+      <li><strong>Whirli</strong> – E-commerce toyshop developed using React and Laravel</li>
+      <li><strong>KayansMarkets</strong> – Wordpress-based marketing website</li>
+      <li>Many other custom projects based on <strong>React</strong>, <strong>Node.js</strong>, <strong>PHP</strong>, and <strong>Python</strong></li>
+    </ul>
+  </section>
 
-    document.querySelectorAll('.fade-in').forEach(section => {
-      observer.observe(section);
-    });
-  </script>
+  <!-- Experience -->
+  <section class="py-10 px-4 max-w-4xl mx-auto">
+    <h2 class="text-2xl font-semibold mb-4">Professional Experience</h2>
+    <div class="mb-6">
+      <h3 class="font-bold">eQuest Solutions</h3>
+      <p class="text-sm text-gray-600">20th Feb 2023 – Present</p>
+      <p class="italic">Position: DevOps Engineer</p>
+      <ul class="list-disc pl-5 space-y-2 mt-2">
+        <li>Designing, implementing, and managing infrastructure using Kubernetes, Docker, and cloud platforms (AWS/Azure/GCP).</li>
+        <li>Setting up VMs, containers, and networking for performance and scalability.</li>
+        <li>Maintaining automated CI/CD pipelines for streamlined deployment.</li>
+        <li>Integrating Git with CI/CD tools for automated builds, tests, and deployments.</li>
+        <li>Developing scripts for automation of provisioning, configuration, and updates.</li>
+        <li>Implementing monitoring with Prometheus, Grafana.</li>
+        <li>Backup and disaster recovery implementation.</li>
+        <li>Documentation of infrastructure, processes, and best practices.</li>
+        <li>Staying up to date with latest DevOps trends and technologies.</li>
+      </ul>
+    </div>
+
+    <div class="mb-6">
+      <h3 class="font-bold">Latitude Technolabs</h3>
+      <p class="text-sm text-gray-600">18th June 2022 – 17th Feb 2023</p>
+      <p class="italic">Position: DevOps Engineer</p>
+      <ul class="list-disc pl-5 space-y-2 mt-2">
+        <li>Interacted with clients for deployment requirements.</li>
+        <li>Coordinated with development, DBA, QA, and IT Ops to prevent conflicts.</li>
+        <li>Managed cloud infrastructure.</li>
+        <li>Worked with source control tools like TFS and Git.</li>
+        <li>Built Maven scripts in Jenkins for environment transitions.</li>
+        <li>Handled deployment of Java applications across environments.</li>
+        <li>Resolved build, compile, and deployment errors. Managed Linux configuration and upgrades.</li>
+        <li>Implemented CD pipelines using Jenkins and Chef for complete automation.</li>
+      </ul>
+    </div>
+
+    <div class="mb-6">
+      <h3 class="font-bold">Prakash Software Solutions Pvt Ltd</h3>
+      <p class="text-sm text-gray-600">16th June 2019 – 28th May 2022</p>
+      <p class="italic">Position: System and Networking Admin</p>
+      <ul class="list-disc pl-5 space-y-2 mt-2">
+        <li>Troubleshooting hardware & network issues.</li>
+        <li>Installed and configured SharePoint Server 2013–2016 and SQL.</li>
+        <li>Managed Azure Subscription, Identity, Storage, Networking, Compute.</li>
+        <li>Configured Azure Backup with on-prem sync.</li>
+        <li>Deployed VMs using ARM and PowerShell.</li>
+        <li>Migrated resources across subscriptions.</li>
+        <li>Hybrid Azure AD setup.</li>
+        <li>Resource utilization analysis.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Key Skills -->
+  <section class="py-10 px-4 max-w-4xl mx-auto">
+    <h2 class="text-2xl font-semibold mb-4">Key Skills</h2>
+    <ul class="grid grid-cols-2 gap-4 list-disc pl-5">
+      <li>CI/CD</li>
+      <li>Containerization and Orchestration</li>
+      <li>Infrastructure as Code (IaC)</li>
+      <li>Cloud Platforms (AWS, Azure, GCP)</li>
+      <li>Version Control</li>
+      <li>Scripting and Automation</li>
+      <li>Configuration Management</li>
+      <li>Networking Concepts</li>
+      <li>Backup and Disaster Recovery</li>
+    </ul>
+  </section>
+
+  <!-- Education -->
+  <section class="bg-white py-10 px-4 max-w-4xl mx-auto">
+    <h2 class="text-2xl font-semibold mb-4">Educational Qualifications</h2>
+    <ul class="list-disc pl-5">
+      <li>SSC (10th) – Gujarat Board, 2014</li>
+      <li>Diploma in Computer Engineering – Gujarat Technological University, Ahmedabad, 2018</li>
+      <li>Hardware & Networking – Jetking [JCHN+CLOUDE V2], 2019</li>
+    </ul>
+  </section>
+
+  <!-- Personal Details -->
+  <section class="py-10 px-4 max-w-4xl mx-auto">
+    <h2 class="text-2xl font-semibold mb-4">Personal Details</h2>
+    <ul class="list-disc pl-5">
+      <li>Date of Birth: 8th September 1999</li>
+      <li>Gender: Male</li>
+      <li>Languages Known: English, Hindi, Gujarati</li>
+    </ul>
+  </section>
+
+  <!-- Contact -->
+  <section class="bg-blue-100 py-10 px-4 max-w-4xl mx-auto text-center">
+    <h2 class="text-2xl font-semibold mb-4">Get in Touch</h2>
+    <p>Email: <a href="mailto:ranamaulik922@gmail.com" class="text-blue-700 underline">ranamaulik922@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/maulik-rana-0974b1148/" class="text-blue-700 underline" target="_blank">/maulik-rana</a></p>
+  </section>
 </body>
 </html>

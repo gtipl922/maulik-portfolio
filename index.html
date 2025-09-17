@@ -1,164 +1,868 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Maulik Rana - DevOps Engineer</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Maulik Rana | DevOps Engineer Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0a74da;
+      --secondary: #13c2c2;
+      --bg: #f8f9fb;
+      --text: #1a1a1a;
+      --text-light: #555;
+      --card-bg: #fff;
+      --shadow: 0 6px 20px rgba(0,0,0,0.08);
+      --transition: all 0.3s ease;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      margin: 0;
+      line-height: 1.6;
+    }
+    header {
+      background: var(--card-bg);
+      box-shadow: var(--shadow);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1100px;
+      margin: auto;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .nav-links {
+      display: flex;
+    }
+    nav a {
+      text-decoration: none;
+      color: var(--text);
+      margin: 0 0.8rem;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+    nav a:hover {
+      color: var(--primary);
+    }
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1100px;
+      margin: auto;
+      padding: 4rem 2rem;
+      gap: 2rem;
+    }
+    .hero-text {
+      flex: 1;
+    }
+    .hero-text h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+    .hero-text p {
+      color: var(--text-light);
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+    .btn {
+      background: var(--primary);
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-block;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: var(--secondary);
+      transform: translateY(-2px);
+    }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      margin-left: 1rem;
+    }
+    .btn-outline:hover {
+      background: var(--primary);
+      color: white;
+    }
+    .hero-img {
+      flex: 1;
+      max-width: 450px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .hero img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 3rem 2rem;
+    }
+    h2.section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: var(--primary);
+      position: relative;
+    }
+    h2.section-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: var(--secondary);
+      margin: 0.5rem auto;
+      border-radius: 2px;
+    }
+    .about p {
+      color: var(--text-light);
+      line-height: 1.6;
+      font-size: 1rem;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+      gap: 1.5rem;
+    }
+    .skill-card {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+    
+    .skill-card:hover {
+      transform: translateY(-5px);
+    }
+    .skill-card h4 i {
+      margin-right: 10px;
+      color: var(--primary);
+    }
+
+    .skill-card h4 {
+      margin: 0 0 0.5rem;
+      display: flex;
+      justify-content: space-between;
+    }
+    .skill-bar {
+      background: #eee;
+      height: 8px;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 0.5rem;
+    }
+    .skill-progress {
+      background: var(--secondary);
+      height: 100%;
+      width: 0;
+      animation: grow 1.5s forwards;
+    }
+    @keyframes grow {
+      to {width: var(--width);}
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+      justify-content: center;
+    }
+    .tag {
+      background: #e6f7ff;
+      color: var(--primary);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+    .tag:hover {
+      background: var(--primary);
+      color: white;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 1.5rem;
+    }
+    .project-card {
+      background: var(--card-bg);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+    .project-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+    .project-card div {
+      padding: 1.5rem;
+    }
+    .project-card h4 {
+      margin: 0 0 0.5rem;
+    }
+    .project-card p {
+      color: var(--text-light);
+      font-size: 0.95rem;
+      margin: 0 0 1rem;
+    }
+    .project-links {
+      display: flex;
+      gap: 1rem;
+    }
+    .project-links a {
+      color: var(--primary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    
+    .project-links a:hover {
+      color: var(--secondary);
+    }
+    .project-links a i {
+      margin-left: 5px;
+      transition: transform 0.2s;
+    }
+
+    .project-links a:hover i {
+      transform: translateX(5px);
+    }
+
+    .experience-card {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      margin-bottom: 1.5rem;
+      transition: var(--transition);
+      border-left: 4px solid var(--primary);
+    }
+    .experience-card:hover {
+      transform: translateX(5px);
+    }
+    .experience-card h4 {
+      margin: 0 0 0.2rem;
+      color: var(--primary);
+    }
+    .experience-card .date {
+      color: var(--secondary);
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+    .experience-card ul {
+      margin: 0.5rem 0;
+      padding-left: 1.2rem;
+    }
+    .experience-card li {
+      margin-bottom: 0.3rem;
+      color: var(--text-light);
+    }
+    .education-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 1.5rem;
+    }
+    .education-card {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      text-align: center;
+    }
+    .education-card:hover {
+      transform: translateY(-5px);
+    }
+    .education-card h4 {
+      margin: 0 0 0.5rem;
+      color: var(--primary);
+    }
+    .education-card p {
+      margin: 0.2rem 0;
+      color: var(--text-light);
+    }
+    .certifications-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+      gap: 1.5rem;
+    }
+    .certification-card {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      text-align: center;
+    }
+    .certification-card:hover {
+      transform: translateY(-5px);
+    }
+    .certification-card img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      margin-bottom: 1rem;
+    }
+    .certification-card h4 {
+      margin: 0 0 0.5rem;
+      color: var(--primary);
+    }
+    .certification-card p {
+      margin: 0;
+      color: var(--text-light);
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .contact-card {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      text-align: center;
+      transition: var(--transition);
+    }
+    .contact-card:hover {
+      transform: translateY(-5px);
+    }
+    .contact-card i {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    .contact-card h4 {
+      margin: 0 0 0.5rem;
+    }
+    .contact-card a {
+      color: var(--text);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    .contact-card a:hover {
+      color: var(--primary);
+    }
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    .social-links a:hover {
+      background: var(--secondary);
+      transform: translateY(-3px);
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: var(--card-bg);
+      box-shadow: 0 -4px 10px rgba(0,0,0,0.05);
+      margin-top: 2rem;
+    }
+    footer p {
+      margin: 0;
+      color: var(--text-light);
+    }
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      opacity: 0;
+      transition: var(--transition);
+      z-index: 99;
+    }
+    .back-to-top.visible {
+      opacity: 1;
+    }
+    .back-to-top:hover {
+      background: var(--secondary);
+    }
+
+    /* Responsive styles */
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero-text {
+        margin-bottom: 2rem;
+      }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--card-bg);
+        box-shadow: var(--shadow);
+        padding: 1rem;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .nav-links a {
+        margin: 0.5rem 0;
+      }
+      .menu-toggle {
+        display: block;
+      }
+      .btn-outline {
+        margin-left: 0;
+        margin-top: 1rem;
+      }
+    }
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
-  <!-- Hero -->
-  <section class="bg-blue-900 text-white py-10">
-    <div class="container mx-auto text-center">
-      <h1 class="text-4xl font-bold">Maulik Rana</h1>
-      <p class="mt-2 text-lg">DevOps Engineer</p>
-      <div class="mt-4 space-x-4">
-        <a href="mailto:ranamaulik922@gmail.com" class="underline">ranamaulik922@gmail.com</a>
-        <a href="https://www.linkedin.com/in/maulik-rana-0974b1148/" class="underline" target="_blank">LinkedIn</a>
-        <p class="text-sm mt-2">📞 +91-7016331903</p>
+<body>
+
+<header>
+  <nav>
+    <div class="logo">Maulik Rana</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#blog">Blog</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="menu-toggle">
+      <i class="fas fa-bars"></i>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-text">
+    <h1>DevOps Engineer</h1>
+    <p>Building resilient cloud infrastructure, CI/CD pipelines, and automation to power modern applications.</p>
+    <div>
+      <a class="btn" href="#contact">Contact Me</a>
+      <a class="btn btn-outline" href="#projects">View Projects</a>
+    </div>
+  </div>
+  <div class="hero-img">
+    <img src="https://cdn.dribbble.com/users/1162077/screenshots/3848914/programmer.gif" alt="Tech Illustration">
+  </div>
+</section>
+
+<section id="about" class="about">
+  <h2 class="section-title">About Me</h2>
+  <p>I'm Maulik Rana, a DevOps Engineer with 6+ years of experience in designing, implementing, and managing cloud infrastructure, CI/CD pipelines, and automation solutions. I specialize in creating scalable, reliable systems using technologies like AWS, Azure, Kubernetes, Docker, and Terraform. My passion lies in optimizing development workflows and ensuring high availability of services.</p>
+</section>
+
+
+<section id="skills">
+  <h2 class="section-title">Technical Skills</h2>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <h4><i class="fab fa-aws"></i> AWS</h4>
+      <div class="skill-bar"><div class="skill-progress" style="--width:85%"></div></div>
+    </div>
+    <div class="skill-card">
+      <h4><i class="fab fa-microsoft"></i> Azure</h4>
+      <div class="skill-bar"><div class="skill-progress" style="--width:90%"></div></div>
+    </div>
+    <div class="skill-card">
+      <h4><i class="fas fa-dharmachakra"></i> Kubernetes</h4>
+      <div class="skill-bar"><div class="skill-progress" style="--width:80%"></div></div>
+    </div>
+    <div class="skill-card">
+      <h4><i class="fab fa-docker"></i> Docker</h4>
+      <div class="skill-bar"><div class="skill-progress" style="--width:90%"></div></div>
+    </div>
+    <div class="skill-card">
+      <h4><i class="fas fa-code"></i> Terraform / ARM</h4>
+      <div class="skill-bar"><div class="skill-progress" style="--width:80%"></div></div>
+    </div>
+    <div class="skill-card">
+      <h4><i class="fas fa-chart-line"></i> Prometheus & Grafana</h4>
+      <div class="skill-bar"><div class="skill-progress" style="--width:75%"></div></div>
+    </div>
+    <div class="skill-card">
+      <h4><i class="fab fa-linux"></i> Linux Administration</h4>
+      <div class="skill-bar"><div class="skill-progress" style="--width:85%"></div></div>
+    </div>
+    <div class="skill-card">
+      <h4><i class="fab fa-jenkins"></i> Jenkins / GitHub Actions</h4>
+      <div class="skill-bar"><div class="skill-progress" style="--width:80%"></div></div>
+    </div>
+    <div class="skill-card">
+      <h4><i class="fab fa-python"></i> Python / Bash</h4>
+      <div class="skill-bar"><div class="skill-progress" style="--width:70%"></div></div>
+    </div>
+    <div class="skill-card">
+      <h4><i class="fas fa-cogs"></i> Ansible / Chef</h4>
+      <div class="skill-bar"><div class="skill-progress" style="--width:70%"></div></div>
+    </div>
+    <div class="skill-card">
+      <h4><i class="fas fa-shield-alt"></i> Cloud Security</h4>
+      <div class="skill-bar"><div class="skill-progress" style="--width:75%"></div></div>
+    </div>
+    <div class="skill-card">
+      <h4><i class="fas fa-database"></i> ELK Stack</h4>
+      <div class="skill-bar"><div class="skill-progress" style="--width:65%"></div></div>
+    </div>
+  </div>
+
+  <div class="tags">
+    <span class="tag">CI/CD</span>
+    <span class="tag">Containerization</span>
+    <span class="tag">Infrastructure as Code</span>
+    <span class="tag">Cloud Security</span>
+    <span class="tag">Monitoring & Logging</span>
+    <span class="tag">Networking</span>
+    <span class="tag">Backup & Disaster Recovery</span>
+    <span class="tag">Automation & Scripting</span>
+    <span class="tag">Microservices</span>
+    <span class="tag">Configuration Management</span>
+  </div>
+</section>
+
+
+<section id="projects">
+  <h2 class="section-title">Projects</h2>
+  <div class="projects-grid">
+    <div class="project-card">
+      <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd" alt="Cloud Infrastructure">
+      <div>
+        <h4>Cloud Infra Automation</h4>
+        <p>Built IaC templates with Terraform and automated deployments with CI/CD pipelines for multi-environment cloud infrastructure.</p>
+        <div class="project-links">
+          <a href="#"><i class="fab fa-github"></i> Code</a>
+          <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+        </div>
       </div>
     </div>
-  </section>
-
-  <!-- Objectives -->
-  <section class="py-10 px-4 max-w-4xl mx-auto">
-    <h2 class="text-2xl font-semibold mb-4">Objectives</h2>
-    <p class="mb-4">To apply my knowledge in my future endeavors and enable my employer to achieve milestones.</p>
-    <ul class="list-disc pl-5 space-y-2">
-      <li>To work in a creative and challenging environment using cutting edge technology where I can constantly learn and successfully deliver the solutions to the problem.</li>
-      <li>Seeking a position to utilize my skills and abilities in the Information Technology Industry, a job where growth prospects are unlimited and individuality is recognized by work, and to achieve professional satisfaction by meeting higher responsibilities and involving in competent work areas.</li>
-    </ul>
-  </section>
-
-  <!-- Strengths -->
-  <section class="bg-white py-10 px-4 max-w-4xl mx-auto">
-    <h2 class="text-2xl font-semibold mb-4">Strengths</h2>
-    <ul class="list-disc pl-5 space-y-2">
-      <li>A pleasing personality coupled with good communication skills and the keenness to take up new challenges further augment my assets.</li>
-      <li>Comprehensive troubleshooting abilities, effective verbal and good customer handling skills.</li>
-      <li>Ability to deal with people diplomatically, willingness to learn, hardworking, patient, and polite.</li>
-      <li>An enthusiastic approach to all tasks.</li>
-    </ul>
-  </section>
-
-  <!-- Technical Qualifications -->
-  <section class="py-10 px-4 max-w-4xl mx-auto">
-    <h2 class="text-2xl font-semibold mb-4">Technical Qualifications</h2>
-    <ul class="list-disc pl-5 space-y-2">
-      <li>Hardware & Network (JCHNP+Cloud)</li>
-      <li>Azure Fundamentals</li>
-      <li>Azure Administrator Associate by Microsoft</li>
-      <li>Azure DevOps Engineer Expert</li>
-    </ul>
-  </section>
-
-  <!-- Projects -->
-  <section class="bg-blue-50 py-10 px-4 max-w-4xl mx-auto">
-    <h2 class="text-2xl font-semibold mb-4">Projects</h2>
-    <ul class="list-disc pl-5 space-y-2">
-      <li><strong>Mybyk</strong> – CI-based Node.js web and mobile application</li>
-      <li><strong>Kahunas</strong> – Laravel backend with mobile app integration</li>
-      <li><strong>Skilled</strong> – Online learning platform built on React, Node.js, and Laravel</li>
-      <li><strong>Whirli</strong> – E-commerce toyshop developed using React and Laravel</li>
-      <li><strong>KayansMarkets</strong> – Wordpress-based marketing website</li>
-      <li>Many other custom projects based on <strong>React</strong>, <strong>Node.js</strong>, <strong>PHP</strong>, and <strong>Python</strong></li>
-    </ul>
-  </section>
-
-  <!-- Experience -->
-  <section class="py-10 px-4 max-w-4xl mx-auto">
-    <h2 class="text-2xl font-semibold mb-4">Professional Experience</h2>
-    <div class="mb-6">
-      <h3 class="font-bold">eQuest Solutions</h3>
-      <p class="text-sm text-gray-600">20th Feb 2023 – Present</p>
-      <p class="italic">Position: DevOps Engineer</p>
-      <ul class="list-disc pl-5 space-y-2 mt-2">
-        <li>Designing, implementing, and managing infrastructure using Kubernetes, Docker, and cloud platforms (AWS/Azure/GCP).</li>
-        <li>Setting up VMs, containers, and networking for performance and scalability.</li>
-        <li>Maintaining automated CI/CD pipelines for streamlined deployment.</li>
-        <li>Integrating Git with CI/CD tools for automated builds, tests, and deployments.</li>
-        <li>Developing scripts for automation of provisioning, configuration, and updates.</li>
-        <li>Implementing monitoring with Prometheus, Grafana.</li>
-        <li>Backup and disaster recovery implementation.</li>
-        <li>Documentation of infrastructure, processes, and best practices.</li>
-        <li>Staying up to date with latest DevOps trends and technologies.</li>
-      </ul>
+    <div class="project-card">
+      <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b" alt="Monitoring Dashboard">
+      <div>
+        <h4>Monitoring Stack</h4>
+        <p>Deployed Prometheus & Grafana to monitor multi-cluster Kubernetes workloads with custom dashboards and alerting.</p>
+        <div class="project-links">
+          <a href="#"><i class="fab fa-github"></i> Code</a>
+          <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+        </div>
+      </div>
     </div>
-
-    <div class="mb-6">
-      <h3 class="font-bold">Latitude Technolabs</h3>
-      <p class="text-sm text-gray-600">18th June 2022 – 17th Feb 2023</p>
-      <p class="italic">Position: DevOps Engineer</p>
-      <ul class="list-disc pl-5 space-y-2 mt-2">
-        <li>Interacted with clients for deployment requirements.</li>
-        <li>Coordinated with development, DBA, QA, and IT Ops to prevent conflicts.</li>
-        <li>Managed cloud infrastructure.</li>
-        <li>Worked with source control tools like TFS and Git.</li>
-        <li>Built Maven scripts in Jenkins for environment transitions.</li>
-        <li>Handled deployment of Java applications across environments.</li>
-        <li>Resolved build, compile, and deployment errors. Managed Linux configuration and upgrades.</li>
-        <li>Implemented CD pipelines using Jenkins and Chef for complete automation.</li>
-      </ul>
+    <div class="project-card">
+      <img src="https://images.unsplash.com/photo-1563207153-f403bf289096" alt="CI/CD Pipeline">
+      <div>
+        <h4>CI/CD Pipeline Automation</h4>
+        <p>Created end-to-end CI/CD pipelines with Jenkins and GitHub Actions for automated testing and deployment.</p>
+        <div class="project-links">
+          <a href="#"><i class="fab fa-github"></i> Code</a>
+          <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+        </div>
+      </div>
     </div>
+  </div>
+</section>
 
-    <div class="mb-6">
-      <h3 class="font-bold">Prakash Software Solutions Pvt Ltd</h3>
-      <p class="text-sm text-gray-600">16th June 2019 – 28th May 2022</p>
-      <p class="italic">Position: System and Networking Admin</p>
-      <ul class="list-disc pl-5 space-y-2 mt-2">
-        <li>Troubleshooting hardware & network issues.</li>
-        <li>Installed and configured SharePoint Server 2013–2016 and SQL.</li>
-        <li>Managed Azure Subscription, Identity, Storage, Networking, Compute.</li>
-        <li>Configured Azure Backup with on-prem sync.</li>
-        <li>Deployed VMs using ARM and PowerShell.</li>
-        <li>Migrated resources across subscriptions.</li>
-        <li>Hybrid Azure AD setup.</li>
-        <li>Resource utilization analysis.</li>
-      </ul>
+<section id="experience">
+  <h2 class="section-title">Work Experience</h2>
+  <div class="experience-card">
+    <h4>DevOps Engineer – eQuest Solutions</h4>
+    <span class="date">Feb 2023 – Present</span>
+    <ul>
+      <li>Manage multi-cloud infrastructure with IaC & automation, reducing deployment time by 40%</li>
+      <li>Implement Kubernetes clusters & CI/CD pipelines for microservices architecture</li>
+      <li>Enhance system monitoring & deployment reliability, achieving 99.9% uptime</li>
+      <li>Automate security compliance checks in deployment pipelines</li>
+    </ul>
+  </div>
+  <div class="experience-card">
+    <h4>DevOps Engineer – Latitude Techno Labs</h4>
+    <span class="date">Jun 2022 – Feb 2023</span>
+    <ul>
+      <li>Integrated Jenkins pipelines for automated deployments across multiple environments</li>
+      <li>Managed cloud resources and application releases using Azure DevOps</li>
+      <li>Reduced infrastructure costs by 25% through right-sizing and optimization</li>
+      <li>Implemented containerization strategy using Docker</li>
+    </ul>
+  </div>
+  <div class="experience-card">
+    <h4>System & Network Admin – Prakash Software Solutions</h4>
+    <span class="date">Jun 2019 – May 2022</span>
+    <ul>
+      <li>Administered Linux servers and Azure resources for development teams</li>
+      <li>Handled backups, security, and network operations</li>
+      <li>Implemented monitoring solutions for system health and performance</li>
+      <li>Migrated on-premise infrastructure to Azure cloud</li>
+    </ul>
+  </div>
+</section>
+
+<section id="education">
+  <h2 class="section-title">Education</h2>
+  <div class="education-grid">
+    <div class="education-card">
+      <i class="fas fa-graduation-cap" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;"></i>
+      <h4>Diploma in Computer Engineering</h4>
+      <p>Gujarat Technical University</p>
+      <p>2018</p>
     </div>
-  </section>
+    <div class="education-card">
+      <i class="fas fa-certificate" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;"></i>
+      <h4>Infrastructure & Networking (JCHNP)</h4>
+      <p>Jetking</p>
+      <p>2019</p>
+    </div>
+    <div class="education-card">
+      <i class="fas fa-school" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;"></i>
+      <h4>SSC (10th)</h4>
+      <p>Gujarat Board</p>
+      <p>2014</p>
+    </div>
+  </div>
+</section>
 
-  <!-- Key Skills -->
-  <section class="py-10 px-4 max-w-4xl mx-auto">
-    <h2 class="text-2xl font-semibold mb-4">Key Skills</h2>
-    <ul class="grid grid-cols-2 gap-4 list-disc pl-5">
-      <li>CI/CD</li>
-      <li>Containerization and Orchestration</li>
-      <li>Infrastructure as Code (IaC)</li>
-      <li>Cloud Platforms (AWS, Azure, GCP)</li>
-      <li>Version Control</li>
-      <li>Scripting and Automation</li>
-      <li>Configuration Management</li>
-      <li>Networking Concepts</li>
-      <li>Backup and Disaster Recovery</li>
-    </ul>
-  </section>
+<section id="certifications">
+  <h2 class="section-title">Certifications</h2>
+  <div class="certifications-grid">
+    <div class="certification-card">
+      <img src="https://images.credly.com/size/340x340/images/be8fcaeb-c769-4858-b567-ffaaa73ce8cf/image.png" alt="Azure Fundamentals">
+      <h4>Azure Fundamentals</h4>
+      <p>Microsoft Certified</p>
+      <p>2023</p>
+    </div>
+    <div class="certification-card">
+      <img src="https://images.credly.com/size/340x340/images/336eebfc-0ac3-4553-9a67-b402f491f185/azure-administrator-associate-600x600.png" alt="Azure Administrator">
+      <h4>Azure Administrator Associate</h4>
+      <p>Microsoft Certified</p>
+      <p>2023</p>
+    </div>
+    <div class="certification-card">
+      <img src="https://images.credly.com/size/340x340/images/c3ab66f8-5d59-4afa-a6c2-0ba30a1989ca/CERT-Expert-DevOps-Engineer-600x600.png" alt="Azure DevOps Engineer">
+      <h4>Azure DevOps Engineer Expert</h4>
+      <p>Microsoft Certified</p>
+      <p>2023</p>
+    </div>
+    <div class="certification-card">
+      <img src="https://images.credly.com/size/340x340/images/0b28484a-5d3e-4f3c-9cda-5c6b4c5d6b5a/aws-certified-solutions-architect-associate.png" alt="AWS Solutions Architect">
+      <h4>AWS Solutions Architect</h4>
+      <p>Amazon Web Services</p>
+      <p>2022</p>
+    </div>
+  </div>
+</section>
 
-  <!-- Education -->
-  <section class="bg-white py-10 px-4 max-w-4xl mx-auto">
-    <h2 class="text-2xl font-semibold mb-4">Educational Qualifications</h2>
-    <ul class="list-disc pl-5">
-      <li>SSC (10th) – Gujarat Board, 2014</li>
-      <li>Diploma in Computer Engineering – Gujarat Technological University, Ahmedabad, 2018</li>
-      <li>Hardware & Networking – Jetking [JCHN+CLOUDE V2], 2019</li>
-    </ul>
-  </section>
+<section id="blog">
+  <h2 class="section-title">From the Blog</h2>
+  <div class="projects-grid">
+    <!-- Latest blog posts will be loaded here automatically -->
+  </div>
+</section>
 
-  <!-- Personal Details -->
-  <section class="py-10 px-4 max-w-4xl mx-auto">
-    <h2 class="text-2xl font-semibold mb-4">Personal Details</h2>
-    <ul class="list-disc pl-5">
-      <li>Date of Birth: 8th September 1999</li>
-      <li>Gender: Male</li>
-      <li>Languages Known: English, Hindi, Gujarati</li>
-    </ul>
-  </section>
+<section id="contact">
+  <h2 class="section-title">Get In Touch</h2>
+  <p style="text-align:center; max-width: 600px; margin: 0 auto 2rem;">I'm currently available for freelance work and full-time opportunities. Feel free to reach out if you want to collaborate on something!</p>
+  
+  <div class="contact-grid">
+    <div class="contact-card">
+      <i class="fas fa-envelope"></i>
+      <h4>Email</h4>
+      <a href="mailto:ranamaulik922@gmail.com">ranamaulik922@gmail.com</a>
+    </div>
+    <div class="contact-card">
+      <i class="fas fa-phone"></i>
+      <h4>Phone</h4>
+      <a href="tel:+917016331903">+91 7016331903</a>
+    </div>
+    <div class="contact-card">
+      <i class="fas fa-map-marker-alt"></i>
+      <h4>Location</h4>
+      <p>Ahmedabad, Gujarat, India</p>
+    </div>
+  </div>
+  
+  <div class="social-.links">
+    <a href="https://www.linkedin.com/in/maulik-rana-0974b1148/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+    <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+    <a href="https://medium.com/" target="_blank"><i class="fab fa-medium-m"></i></a>
+  </div>
+</section>
 
-  <!-- Contact -->
-  <section class="bg-blue-100 py-10 px-4 max-w-4xl mx-auto text-center">
-    <h2 class="text-2xl font-semibold mb-4">Get in Touch</h2>
-    <p>Email: <a href="mailto:ranamaulik922@gmail.com" class="text-blue-700 underline">ranamaulik922@gmail.com</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/maulik-rana-0974b1148/" class="text-blue-700 underline" target="_blank">/maulik-rana</a></p>
-  </section>
+<footer>
+  <p>&copy; 2025 Maulik Rana. All Rights Reserved.</p>
+</footer>
+
+<a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+<script>
+  // Mobile menu toggle
+  document.querySelector('.menu-toggle').addEventListener('click', function() {
+    document.querySelector('.nav-links').classList.toggle('active');
+  });
+
+  // Back to top button
+  const backToTopButton = document.querySelector('.back-to-top');
+  
+  window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) {
+      backToTopButton.classList.add('visible');
+    } else {
+      backToTopButton.classList.remove('visible');
+    }
+  });
+  
+  backToTopButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  });
+
+  // Smooth scrolling for navigation links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        // Close mobile menu if open
+        document.querySelector('.nav-links').classList.remove('active');
+        
+        window.scrollTo({
+          top: targetElement.offsetTop - 80,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const blogSection = document.querySelector('#blog .projects-grid');
+    const query = `
+      query {
+        publication(host: "maulikrana.hashnode.dev") {
+          posts(first: 3) {
+            edges {
+              node {
+                title
+                brief
+                slug
+                coverImage {
+                  url
+                }
+              }
+            }
+          }
+        }
+      }
+    `;
+
+    fetch('https://gql.hashnode.com/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': '6bfd9226-0e40-476c-9e72-95577040b8ed'
+      },
+      body: JSON.stringify({ query })
+    })
+    .then(res => res.json())
+    .then(data => {
+      const posts = data.data.publication.posts.edges;
+      let blogHtml = '';
+      posts.forEach(post => {
+        const { title, brief, slug, coverImage } = post.node;
+        const postUrl = `https://maulikrana.hashnode.dev/${slug}`;
+        const imageUrl = coverImage ? coverImage.url : 'https://images.unsplash.com/photo-1526374965328-5f61d4dc18c5'; // Placeholder
+        blogHtml += `
+          <div class="project-card">
+            <img src="${imageUrl}" alt="${title}">
+            <div>
+              <h4>${title}</h4>
+              <p>${brief}</p>
+              <div class="project-links">
+                <a href="${postUrl}" target="_blank">Read More <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+      blogSection.innerHTML = blogHtml;
+    });
+  });
+</script>
+
 </body>
 </html>
